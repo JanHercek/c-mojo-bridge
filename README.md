@@ -12,6 +12,7 @@ We will use the SDL3, with life.mojo as example:
 - Study and run c-mojo-make.sh
 
 **CLI Options for the c-mojo-bridge.py**
+
 "-l, --library",Required. The path to the .so or .dll library.
 "-m, --master",Process first-level includes from a master header.
 "-f, --functions",Headers for full function and type bindings.
