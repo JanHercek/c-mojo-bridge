@@ -27,4 +27,3 @@ We will use the SDL3, with life.mojo as example:
 
 * **Tool (`c-mojo-bridge.py`)**: Licensed under **AGPL-3.0**. Any derivative work or network-based use must remain Open Source.
 * **Generated Output**: Licensed under **MIT**. You are free to use the generated `.mojo` files in any project, including commercial ones.
-H
