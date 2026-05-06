@@ -13,13 +13,13 @@ We will use the SDL3, with life.mojo as example:
 
 **CLI Options for the c-mojo-bridge.py**
 
- "-l, --library",Required. The path to the .so or .dll library.
- "-m, --master",Process first-level includes from a master header.
- "-f, --functions",Headers for full function and type bindings.
- "-t, --types",Headers for types/enums/structs only.
- "-e, --exclude",List of filenames to skip during processing.
- "-o, --output",Output filename (defaults to stdout).
- "-b, --blacklist","Prefix patterns to ignore (default: G_, GLIB_)."
+- "-l, --library",Required. The path to the .so or .dll library.
+- "-m, --master",Process first-level includes from a master header.
+- "-f, --functions",Headers for full function and type bindings.
+- "-t, --types",Headers for types/enums/structs only.
+- "-e, --exclude",List of filenames to skip during processing.
+- "-o, --output",Output filename (defaults to stdout).
+- "-b, --blacklist","Prefix patterns to ignore (default: G_, GLIB_)."
 
 **License**
 * Tool (c-mojo-bridge.py): AGPL-3.0
