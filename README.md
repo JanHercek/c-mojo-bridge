@@ -6,7 +6,7 @@ A tool to generate Mojo bindings from C headers.
 We will use the SDL3, with life.mojo as example:
 
 - Create a fresh folder, switch to it, then:
-- Download 3 files: c-mojo-bridge.py, c-mojo-make-sh and life.mojo
+- Download 3 files: c-mojo-bridge.py, c-mojo-make.sh and life.mojo
 - If haven't already, install libclang: `pip install libclang`
 - Make sure you have SDL3 installed
 - Create 'SDL3' link pointing to the folder with SDL3 header files.  
