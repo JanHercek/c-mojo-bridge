@@ -1,17 +1,19 @@
 # c-mojo-bridge
 A tool to generate Mojo bindings from C headers.
 
-**Quick start: How to create and use a lib:**
+### Quick start: How to create and use a lib:
 
 We will use the SDL3, with life.mojo as example:
 
 - Create a fresh folder, switch to it, then:
 - Download 3 files: c-mojo-bridge.py, c-mojo-make-sh and life.mojo
+- If haven't already, install libclang: `pip install libclang`
 - Make sure you have SDL3 installed
-- Create 'SDL3' link pointing to folder with SDL3 header files
+- Create 'SDL3' link pointing to the folder with SDL3 header files.  
+  On Linux, use: `ln -s /usr/include/SDL3 ./SDL3`
 - Study and run c-mojo-make.sh
 
-## Example Generated Output
+### Example Generated Output
 
 The following is an example of the Mojo code produced by `c-mojo-bridge`:
 
@@ -51,7 +53,7 @@ struct SDL_AssertData(ImplicitlyCopyable, Movable):
 # eof
 ```
 
-**CLI Options for the c-mojo-bridge.py:**
+### CLI Options for the c-mojo-bridge.py:
 | Option | Required | Description |
 | :--- | :---: | :--- |
 | `-l, --library` | **Yes** | The path to the `.so` or `.dll` library (e.g., `libSDL3.so`). |
@@ -63,7 +65,7 @@ struct SDL_AssertData(ImplicitlyCopyable, Movable):
 | `-b, --blacklist` | No | Prefix patterns to ignore (default: `G_`, `GLIB_`). |
 
 
-**License**
+### License
 
 * **Tool (`c-mojo-bridge.py`)**: Licensed under **AGPL-3.0**. Any derivative work or network-based use must remain Open Source.
 * **Generated Output**: Licensed under **MIT**. You are free to use the generated `.mojo` files in any project, including commercial ones.
