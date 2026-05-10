@@ -1,5 +1,5 @@
-# c-mojo-bridge
-A tool to generate Mojo bindings from C headers.
+# Project c-mojo-bridge
+A tool to generate Mojo bindings from C headers. Optimized for Mojo v1.0.0b1+. Use at your own risk (bugs may exist :).
 
 ### Quick start: How to create and use a lib:
 
