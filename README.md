@@ -6,16 +6,16 @@ A tool to generate Mojo bindings from C headers.
 We will use the SDL3, with life.mojo as example:
 
 - Create a fresh folder, switch to it, then:
-- Download 3 files: c-mojo-bridge.py, c-mojo-make.sh and life.mojo
+- Download 3 files: c_mojo_bridge.py, c_mojo_make.sh and life.mojo
 - If haven't already, install libclang: `pip install libclang`
 - Make sure you have SDL3 installed
 - Create 'SDL3' link pointing to the folder with SDL3 header files.  
   On Linux, use: `ln -s /usr/include/SDL3 ./SDL3`
-- Study and run c-mojo-make.sh
+- Study and run c_mojo_make.sh
 
 ### Example Generated Output
 
-The following is an example of the Mojo code produced by `c-mojo-bridge`:
+The following is an example of the Mojo code produced by `c_mojo_bridge.py`:
 
 ```mojo
 """
@@ -26,8 +26,7 @@ The following is an example of the Mojo code produced by `c-mojo-bridge`:
 """
 from std import ffi
 
-# header file = SDL3/SDL_assert.h
-
+# defines
 comptime SDL_ASSERT_LEVEL = 2
 ...
 
@@ -53,19 +52,24 @@ struct SDL_AssertData(ImplicitlyCopyable, Movable):
 # eof
 ```
 
-### CLI Options for the c-mojo-bridge.py:
-| Option | Required | Description |
-| :--- | :---: | :--- |
-| `-l, --library` | **Yes** | The path to the `.so` or `.dll` library (e.g., `libSDL3.so`). |
-| `-m, --master` | No | Process first-level `#include` directives from a master header file. |
-| `-f, --functions` | No | Headers for full function and type bindings. |
-| `-t, --types` | No | Headers for types, enums, and structs only (no functions). |
-| `-e, --exclude` | No | List of header filenames to skip during processing. |
-| `-o, --output` | No | Output filename (defaults to printing to the console). |
-| `-b, --blacklist` | No | Prefix patterns to ignore (default: `G_`, `GLIB_`). |
+
+### CLI Options for the c_mojo_bridge.py
+
+| Option | Description |
+| :--- | :---: |
+|  -h, --help | Show this help message and exit
+|  -o, --output OUTPUT |  Output Mojo file (default: print to console)
+|  -l, --library LIBRARY | The .so/.dll library filename (e.g. libSDL3.so)
+|  -t, --types [TYPES ...] | Headers for types/enums/structs only
+|  -f, --functions [FUNCTIONS ...] | Headers for full functions bindings
+|  -m, --master MASTER | Process all #includes in this master header
+|  -e, --exclude [EXCLUDE ...] | List of header files to exclude from processing
+|  -b, --blacklist [BLACKLIST ...] | Additional identifier prefixes to ignore
+|  -r, --required [REQUIRED ...] | Only emit these identifiers and their dependencies (default emit everything)
 
 
 ### License
 
-* **Tool (`c-mojo-bridge.py`)**: Licensed under **AGPL-3.0**. Any derivative work or network-based use must remain Open Source.
+* **Tool (`c_mojo_bridge.py`)**: Licensed under **AGPL-3.0**. Any derivative work or network-based use must remain Open Source.
 * **Generated Output**: Licensed under **MIT**. You are free to use the generated `.mojo` files in any project, including commercial ones.
+

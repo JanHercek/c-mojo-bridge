@@ -27,7 +27,7 @@ Free to use, modify, and share. Any derivative work or
 network-based use must remain Open Source under the AGPL.
 See <https://www.gnu.org/licenses/agpl-3.0.html> for details.
 """
-comptime VERSION = "1.3.0"
+comptime VERSION = "1.3.1"
 
 from std import random
 from std import time
@@ -163,10 +163,7 @@ def life_sdl(var planet: Planet) raises -> None:
     var renderer = UnsafePointer[sdl.SDL_Renderer, MutAnyOrigin].unsafe_dangling() 
     var event = sdl.SDL_Event()
     var ptr = sdl.Pointers()  # load state variables, and .so into memory
-    _ = ptr.SDL_Init(0x00004020) # INIT_VIDEO+INIT_EVENTS
-    #"80x80 Mojo Grid".unsafe_ptr().bitcast[UnsafePointer[UInt8,MutAnyOrigin]](),
-    #title.unsafe_ptr(),
-    var title = "80x80 Mojo Grid"
+    _ = ptr.SDL_Init(sdl.SDL_INIT_VIDEO + sdl.SDL_INIT_EVENTS)
     _ = ptr.SDL_CreateWindowAndRenderer(
         "80x80 Mojo Grid".unsafe_ptr(),
         window_width, 

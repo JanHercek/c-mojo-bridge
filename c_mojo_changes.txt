@@ -1,0 +1,13 @@
+v 1.1.0:
+    * Renamed files using _ instead - 
+      Ugh, this is ugly, but it allows us to use the c_mojo_bridge.py as a python module.
+    * Added --required option
+      Now we have ability to create small bridges (=libraries) which exposes only
+      necessary (required) symbols - it speedup mojo compiling, and avoid poluting
+      namespaces.
+    * Added internal sorting to fulfill mojo's dependency requirement (known first).
+    * Refactored and polished code.
+
+v 1.0.0:
+    Initial release.
+
