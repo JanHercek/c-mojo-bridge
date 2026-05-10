@@ -56,7 +56,7 @@ struct SDL_AssertData(ImplicitlyCopyable, Movable):
 ### CLI Options for the c_mojo_bridge.py
 
 | Option | Description |
-| :--- | :---: |
+| :--- | :--- |
 |  -h, --help | Show this help message and exit
 |  -o, --output OUTPUT |  Output Mojo file (default: print to console)
 |  -l, --library LIBRARY | The .so/.dll library filename (e.g. libSDL3.so)
