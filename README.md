@@ -1,3 +1,34 @@
+> ## ⚠️ This project is ARCHIVED / ABANDONED
+>
+> **Why:** modern agentic AI coding makes a dedicated C→Mojo binding generator
+> unnecessary. An AI agent can write a GUI app (e.g. against SDL3) directly via
+> Mojo's `std.ffi` / `std.cfi` — structs, enums, function declarations and
+> `#defines` included — with no codegen step, no libclang, and no header symlinks.
+> See **[life2.mojo](life2.mojo)** in this repo for a working demonstration: a
+> complete SDL3 game rendered through hand-written FFI, ten `get_function`
+> declarations and two structs, produced by an agent in one pass.
+>
+> **Status:** no further development, no bug fixes, no support. The code is kept
+> as-is, for reference.
+>
+> **What to do instead:** point your agent at the C headers and ask it to write
+> the bindings straight into your project.
+
+### 🤖 Agentic alternative: life2.mojo
+
+`life2.mojo` (v1.4.0) is Conway's Game of Life with five interchangeable
+backends, and it is the reason this tool is retired:
+
+```
+mojo life2.mojo cli     rows cols
+mojo life2.mojo tui     rows cols          # stub, see TODO (curses / mist)
+mojo life2.mojo gui     rows cols          # pygame, via Python interop
+mojo life2.mojo sdl     rows cols [frames] # pure std.ffi, SDL3 3.4.2, no bridge
+mojo life2.mojo evolve  rows cols          # headless, 1000 generations
+```
+
+---
+
 # Project c-mojo-bridge
 A tool to generate Mojo bindings from C headers. Optimized for Mojo v1.0.0b1+. Use at your own risk (bugs may exist :).
 
@@ -72,4 +103,11 @@ struct SDL_AssertData(ImplicitlyCopyable, Movable):
 
 * **Tool (`c_mojo_bridge.py`)**: Licensed under **AGPL-3.0**. Any derivative work or network-based use must remain Open Source.
 * **Generated Output**: Licensed under **MIT**. You are free to use the generated `.mojo` files in any project, including commercial ones.
+* **`life.mojo` / `life2.mojo` examples**: Licensed under **AGPL-3.0** (the Game-of-Life core in both is
+  adapted from Modular Inc. documentation, originally Apache-2.0 with LLVM Exceptions).
+
+---
+
+*Final commit: README archival notice, `c_mojo_changes.txt` archival entry, and
+`life2.mojo` added as the agentic-binding demonstration.*
 

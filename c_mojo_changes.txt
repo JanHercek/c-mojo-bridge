@@ -1,3 +1,15 @@
+ARCHIVED (no further releases):
+    This project is abandoned. Current agentic AI coding tools make a dedicated
+    C->Mojo binding generator obsolete: point an agent at the C headers and ask
+    it to write the bindings directly into your project via Mojo's std.ffi /
+    std.cfi. No libclang, no header symlink, no master header, no blacklist tuning.
+
+    Proof of concept committed alongside this note: life2.mojo (v1.4.0).
+    Conway's Game of Life with 5 backends (cli/tui/gui/sdl/evolve). Its 'sdl'
+    backend renders through SDL3 3.4.2 using only std.ffi - 10 get_function
+    declarations plus SDL_FRect and SDL_Event layouts, hand-written by an agent.
+    Run:  mojo life2.mojo sdl 80 80
+
 v 1.1.0:
     * Renamed files using _ instead - 
       Ugh, this is ugly, but it allows us to use the c_mojo_bridge.py as a python module.
